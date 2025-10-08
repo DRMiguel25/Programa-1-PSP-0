@@ -1,0 +1,94 @@
+<div class="calculadora-wrapper">
+  <div class="calculadora-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="icon-circle">
+        <svg class="calculator-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <h2 class="title">Calculadora Pro</h2>
+      <p class="subtitle">Realiza operaciones matemáticas</p>
+    </div>
+
+    <!-- Inputs -->
+    <div class="form-container">
+      <div class="form-group">
+        <label for="numero1">Primer Número</label>
+        <input 
+          type="number" 
+          id="numero1" 
+          [(ngModel)]="numero1"
+          placeholder="0"
+          class="form-control">
+      </div>
+
+      <!-- Botones de operación -->
+      <div class="operaciones-grid">
+        <button 
+          type="button"
+          class="operacion-btn"
+          [class.active]="operacionSeleccionada === 'suma'"
+          (click)="operacionSeleccionada = 'suma'">
+          +
+        </button>
+        <button 
+          type="button"
+          class="operacion-btn"
+          [class.active]="operacionSeleccionada === 'resta'"
+          (click)="operacionSeleccionada = 'resta'">
+          -
+        </button>
+        <button 
+          type="button"
+          class="operacion-btn"
+          [class.active]="operacionSeleccionada === 'multiplicacion'"
+          (click)="operacionSeleccionada = 'multiplicacion'">
+          ×
+        </button>
+        <button 
+          type="button"
+          class="operacion-btn"
+          [class.active]="operacionSeleccionada === 'division'"
+          (click)="operacionSeleccionada = 'division'">
+          ÷
+        </button>
+      </div>
+
+      <div class="form-group">
+        <label for="numero2">Segundo Número</label>
+        <input 
+          type="number" 
+          id="numero2" 
+          [(ngModel)]="numero2"
+          placeholder="0"
+          class="form-control">
+      </div>
+
+      <!-- Botón Calcular -->
+      <button type="button" class="btn-calcular" (click)="calcular()">
+        Calcular
+      </button>
+
+      <!-- Resultado -->
+      <div *ngIf="resultado !== null" class="resultado">
+        <p class="resultado-label">Resultado</p>
+        <div class="operacion-display" *ngIf="numero1 && numero2">
+          <span class="num">{{ numero1 }}</span>
+          <span class="symbol">{{ getOperacionSymbol() }}</span>
+          <span class="num">{{ numero2 }}</span>
+          <span class="equals">=</span>
+        </div>
+        <p class="resultado-valor">
+          {{ typeof resultado === 'number' ? (resultado | number:'1.0-2') : resultado }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>✨ Calculadora mejorada con diseño moderno</p>
+  </div>
+</div>

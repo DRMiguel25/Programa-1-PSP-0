@@ -1,0 +1,315 @@
+.calculadora-wrapper {
+  min-height: 100vh;
+  background-color: #f9fafb; // Fondo principal claro
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculadora-container {
+  width: 100%;
+  max-width: 400px;
+  background: white; // Contenedor blanco
+  border: 1px solid #e5e7eb; // Borde sutil
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+  padding: 24px;
+  
+  @media (min-width: 640px) {
+    padding: 32px;
+  }
+}
+
+// Header
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.icon-circle {
+  display: inline-block;
+  background: linear-gradient(135deg, #4b5563, #1f2937); // Gradiente de grises oscuros
+  border-radius: 50%;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(31, 41, 55, 0.2);
+  
+  @media (min-width: 640px) {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.calculator-icon {
+  width: 28px;
+  height: 28px;
+  color: white;
+  
+  @media (min-width: 640px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937; // Título oscuro
+  // Se elimina el fondo de gradiente para el texto
+  margin: 0;
+  
+  @media (min-width: 640px) {
+    font-size: 32px;
+  }
+}
+
+.subtitle {
+  color: #6b7280; // Subtítulo en gris medio
+  margin-top: 8px;
+  font-size: 13px;
+  
+  @media (min-width: 640px) {
+    font-size: 14px;
+  }
+}
+
+// Form
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
+  @media (min-width: 640px) {
+    gap: 20px;
+  }
+}
+
+.form-group {
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151; // Color de etiqueta
+    margin-bottom: 6px;
+    
+    @media (min-width: 640px) {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: #f9fafb; // Fondo de input claro
+  border: 2px solid #e5e7eb; // Borde de input
+  border-radius: 12px;
+  font-size: 16px;
+  color: #111827; // Texto dentro del input
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+
+  @media (min-width: 640px) {
+    padding: 14px 16px;
+    font-size: 18px;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #1f2937; // Borde oscuro al enfocar
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(31, 41, 55, 0.1);
+  }
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+}
+
+// Operaciones Grid
+.operaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 8px 0;
+  
+  @media (min-width: 640px) {
+    gap: 12px;
+  }
+}
+
+.operacion-btn {
+  width: 100%;
+  height: 52px;
+  border: 1px solid #e5e7eb; // Borde para botones claros
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: white; // Botones claros
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  @media (min-width: 640px) {
+    height: 60px;
+    font-size: 24px;
+  }
+
+  &:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.active {
+    color: white;
+    transform: scale(1.05);
+    background: #1f2937; // Fondo oscuro para estado activo
+    border-color: #1f2937;
+    box-shadow: 0 4px 12px rgba(31, 41, 55, 0.2);
+
+    @media (min-width: 640px) {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(31, 41, 55, 0.2);
+    }
+
+    // Se eliminan los :nth-child con colores específicos
+  }
+}
+
+// Botón Calcular
+.btn-calcular {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #374151, #1f2937); // Botón principal oscuro
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(31, 41, 55, 0.3);
+  transition: all 0.2s ease;
+  
+  @media (min-width: 640px) {
+    padding: 16px;
+    font-size: 18px;
+    box-shadow: 0 8px 20px rgba(31, 41, 55, 0.3);
+  }
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(31, 41, 55, 0.4);
+    
+    @media (min-width: 640px) {
+      box-shadow: 0 10px 25px rgba(31, 41, 55, 0.4);
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Resultado
+.resultado {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9fafb; // Fondo del resultado
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  text-align: center;
+  animation: fadeIn 0.4s ease-out;
+  
+  @media (min-width: 640px) {
+    margin-top: 24px;
+    padding: 24px;
+  }
+}
+
+.resultado-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  @media (min-width: 640px) {
+    font-size: 14px;
+    margin: 0 0 12px 0;
+  }
+}
+
+.operacion-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  
+  @media (min-width: 640px) {
+    gap: 8px;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .num {
+    color: #374151;
+  }
+  .symbol {
+    color: #111827; // Símbolo en el gris más oscuro
+  }
+  .equals {
+    color: #9ca3af;
+  }
+}
+
+.resultado-valor {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1f2937; // Valor del resultado en oscuro
+  // Se elimina el fondo de gradiente para el texto
+  margin: 0;
+  word-break: break-all;
+  
+  @media (min-width: 640px) {
+    font-size: 36px;
+  }
+}
+
+// Footer (eliminado)
+.footer {
+  display: none;
+}
+
+// Animación
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mejoras táctiles para móviles
+@media (max-width: 639px) {
+  .operacion-btn,
+  .btn-calcular {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
